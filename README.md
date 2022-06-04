@@ -1,3 +1,20 @@
+## 프로젝트 목적
+
+-   open API 이용해 리액트 프로그램 만들기
+
+## 구현할 기능
+
+-   [ ] 랜딩페이지는 검색가능한 header, 업로드된 영상들을 볼 수 있다.
+    -   [ ] header 컴포넌트
+    -   [ ] 업로드된 영상 컴포넌트 (썸네일, 영상제목, 채널명, 조회수, 업로드 날짜 등이 **세로**로 위치함)
+-   [ ] 영상을 클릭하면, 그 영상이 왼쪽에 크게 재생되고, 오른쪽엔 클릭하지 않은 영상들이 리스트 형태로 되어있다.
+    -   [ ] 다음에 볼 영상 컴포넌트 (업로드된 영상 컴포넌트와 동일한데, 썸네일은 왼쪽에, 나머지 정보는 오른쪽에 세로로 위치함)
+
+## 고민할 부분
+
+-   유튜브 영상 data 받아와서 어디 보관하는게 좋을까? -> 상태값 전역관리 -> context API 이용
+-   유튜브 api 할당량 존재 -> 더미 데이터 만들어서 작업하고, 연결 해보기
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
