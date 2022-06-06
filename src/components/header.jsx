@@ -33,10 +33,14 @@ const HeaderLayout = styled.header`
 	}
 `;
 
-export default function Header() {
-	const onSearchHandler = (event) => {
+export default function Header({ onHandleVideos }) {
+	const onSearchHandler = async (event) => {
 		event.preventDefault();
-		// 유튜브 search api 호출 -> 받아와서 -> 상태값 변경
+		await fetch(
+			`https://03a96b12-89e4-42d7-bbe3-6d4b87657399.mock.pstmn.io/search/result/video`
+		)
+			.then((response) => response.json())
+			.then((videos) => onHandleVideos(videos.items));
 	};
 
 	return (

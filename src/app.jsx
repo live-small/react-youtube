@@ -25,7 +25,7 @@ function App() {
 	// video를 비동기로 받아오니까, 받아오기 전엔 스켈레톤 로딩을 시키는거구나
 	return (
 		<>
-			<Header />
+			<Header onHandleVideos={setVideos} />
 			{videos && <Videos videos={videos} />}
 		</>
 	);
