@@ -1,7 +1,14 @@
 import "./app.css";
+import Header from "./components/header";
+import Videos from "./components/videos";
 
 function App() {
-	return <h1>hello react!</h1>;
+	return (
+		<>
+			<Header />
+			<Videos />
+		</>
+	);
 }
 
 export default App;
