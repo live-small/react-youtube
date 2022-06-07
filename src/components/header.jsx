@@ -1,4 +1,4 @@
-import React from "react";
+import { useRef } from "react";
 import { ReactComponent as YoutubeLogo } from "../images/youtube.svg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -43,13 +43,15 @@ const setVideosForm = (videos) => {
 };
 
 export default function Header({ onHandleVideos }) {
+	const inputRef = useRef();
 	const onSearchHandler = async (event) => {
 		event.preventDefault();
 		await fetch(
-			`https://03a96b12-89e4-42d7-bbe3-6d4b87657399.mock.pstmn.io/search/result/video`
+			`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${inputRef.current.value}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
 		)
 			.then((response) => response.json())
-			.then((videos) => onHandleVideos(setVideosForm(videos.items)));
+			.then((videos) => onHandleVideos(setVideosForm(videos.items)))
+			.then(() => (inputRef.current.value = ""));
 	};
 
 	return (
@@ -60,7 +62,7 @@ export default function Header({ onHandleVideos }) {
 				</Link>
 			</div>
 			<form onSubmit={onSearchHandler}>
-				<input placeholder="검색"></input>
+				<input placeholder="검색" ref={inputRef}></input>
 				<button>검색</button>
 			</form>
 		</HeaderLayout>
