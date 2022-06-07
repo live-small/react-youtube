@@ -33,7 +33,9 @@ const VideoLayout = styled.article`
 `;
 
 export default function Video({ video }) {
-	const { snippet } = video;
+	const {
+		snippet: { thumbnails, title, channelTitle },
+	} = video;
 
 	return (
 		<VideoLayout>
@@ -41,14 +43,14 @@ export default function Video({ video }) {
 				<div className="thumbnails">
 					<img
 						alt="thumbnails"
-						src={snippet.thumbnails.medium.url}
-						width={snippet.thumbnails.medium.width}
-						height={snippet.thumbnails.medium.height}
+						src={thumbnails.medium.url}
+						width={thumbnails.medium.width}
+						height={thumbnails.medium.height}
 					></img>
 				</div>
 				<span className="description">
-					<span className="title">{snippet.title}</span>
-					<span className="channel-name">{snippet.channelTitle}</span>
+					<span className="title">{title}</span>
+					<span className="channel-name">{channelTitle}</span>
 				</span>
 			</Link>
 		</VideoLayout>

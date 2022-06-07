@@ -34,6 +34,14 @@ const HeaderLayout = styled.header`
 	}
 `;
 
+const setVideosForm = (videos) => {
+	if (typeof videos[0].id !== "object") return videos;
+	return videos.map((item) => {
+		item.id = item.id.videoId;
+		return item;
+	});
+};
+
 export default function Header({ onHandleVideos }) {
 	const onSearchHandler = async (event) => {
 		event.preventDefault();
@@ -41,7 +49,7 @@ export default function Header({ onHandleVideos }) {
 			`https://03a96b12-89e4-42d7-bbe3-6d4b87657399.mock.pstmn.io/search/result/video`
 		)
 			.then((response) => response.json())
-			.then((videos) => onHandleVideos(videos.items));
+			.then((videos) => onHandleVideos(setVideosForm(videos.items)));
 	};
 
 	return (
