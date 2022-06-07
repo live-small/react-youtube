@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactComponent as YoutubeLogo } from "../images/youtube.svg";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const HeaderLayout = styled.header`
 	background-color: white;
@@ -46,7 +47,9 @@ export default function Header({ onHandleVideos }) {
 	return (
 		<HeaderLayout>
 			<div className="logo">
-				<YoutubeLogo />
+				<Link to="/">
+					<YoutubeLogo />
+				</Link>
 			</div>
 			<form onSubmit={onSearchHandler}>
 				<input placeholder="검색"></input>
