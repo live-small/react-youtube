@@ -14,7 +14,7 @@ function App() {
 		const loadVideos = async () => {
 			try {
 				fetch(
-					`https://014cde81-0256-44b7-9107-6c7687cd5edc.mock.pstmn.io/popular/video`
+					`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=KR&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
 				)
 					.then((response) => response.json())
 					.then((data) => setVideos(data.items));
