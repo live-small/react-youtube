@@ -9,7 +9,6 @@ const VideosLayout = styled.main`
 	justify-content: space-between;
 `;
 
-// 여기 각 video에 onClick 이벤트 걸어야함
 export default function Videos({ videos }) {
 	return (
 		<VideosLayout>

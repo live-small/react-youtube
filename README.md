@@ -10,7 +10,7 @@
             위치함)
     -   [x] `연결` mock data
     -   [ ] `연결` youtube api
--   [ ] 영상을 클릭하면, 그 영상이 왼쪽에 크게 재생되고, 오른쪽엔 클릭하지 않은 영상들이 리스트 형태로 되어있다.
+-   [x] 영상을 클릭하면, 그 영상이 왼쪽에 크게 재생되고, 오른쪽엔 클릭하지 않은 영상들이 리스트 형태로 되어있다.
     -   [ ] 다음에 볼 영상 컴포넌트 (업로드된 영상 컴포넌트와 동일한데, 썸네일은 왼쪽에, 나머지 정보는 오른쪽에 세로로 위치함)
 -   [ ] header에 검색 키워드를 넣고 클릭하면, 아래 검색에 맞는 영상들을 볼 수 있다.
     -   [x] `연결` mock data
@@ -25,7 +25,11 @@
 
 ## 고민할 부분
 
--   영상 상태값 관리 필요(전역) -> context API 이용
+-   유튜브 video src를 어떻게 가져오지? https://developers.google.com/youtube/youtube_player_demo 참고
+    -   유튜브 video 컴포넌트를 클릭했을 때, onClick 이벤트를 videos에서 받아와서 이용할지, video 컴포넌트 내에서 만들어 이용할까? -> react-router-dom(v6) Link 이용!!
+    -   `문제` embed/videoId로 url을 바꾸는데, 현재 url이 embed/videoId일 경우에 다른 동영상으로 할 때, embed/videoId/embed/videoId 이렇게 누적됨
+    -   `해결` /embed/videoId 로 해야함.
+-   영상 상태값 관리 필요(전역) -> context API 이용 : 전역 상태값 필요한지 모르겠음. 작업해보고 필요할 때 생기면, context 이용
 -   유튜브 api 할당량 존재 -> 더미 데이터 만들어서 작업하고, 연결 해보기 -> postman으로 mock server 생성완료!
 
 # Getting Started with Create React App

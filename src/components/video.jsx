@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const VideoLayout = styled.article`
@@ -6,6 +7,9 @@ const VideoLayout = styled.article`
 	flex-direction: column;
 	width: 320px;
 	padding: 0 8px 40px 8px;
+	a {
+		text-decoration: none;
+	}
 
 	.description {
 		display: flex;
@@ -18,30 +22,35 @@ const VideoLayout = styled.article`
 			-webkit-box-orient: vertical;
 			-webkit-line-clamp: 2;
 			overflow: hidden;
+			color: black;
 		}
 		.channel-name {
 			font-size: 12px;
 			font-weight: 400;
+			color: gray;
 		}
 	}
 `;
 
 export default function Video({ video }) {
 	const { snippet } = video;
+
 	return (
 		<VideoLayout>
-			<div className="thumbnails">
-				<img
-					alt="thumbnails"
-					src={snippet.thumbnails.medium.url}
-					width={snippet.thumbnails.medium.width}
-					height={snippet.thumbnails.medium.height}
-				></img>
-			</div>
-			<span className="description">
-				<span className="title">{snippet.title}</span>
-				<span className="channel-name">{snippet.channelTitle}</span>
-			</span>
+			<Link to={`/embed/${video.id}`}>
+				<div className="thumbnails">
+					<img
+						alt="thumbnails"
+						src={snippet.thumbnails.medium.url}
+						width={snippet.thumbnails.medium.width}
+						height={snippet.thumbnails.medium.height}
+					></img>
+				</div>
+				<span className="description">
+					<span className="title">{snippet.title}</span>
+					<span className="channel-name">{snippet.channelTitle}</span>
+				</span>
+			</Link>
 		</VideoLayout>
 	);
 }
