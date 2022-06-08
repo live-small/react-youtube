@@ -1,4 +1,5 @@
 import React from "react";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -32,7 +33,7 @@ const VideoLayout = styled.article`
 	}
 `;
 
-export default function Video({ video }) {
+const Video = memo(function Video({ video }) {
 	const {
 		snippet: { thumbnails, title, channelTitle },
 	} = video;
@@ -55,4 +56,6 @@ export default function Video({ video }) {
 			</Link>
 		</VideoLayout>
 	);
-}
+});
+
+export default Video;
