@@ -151,6 +151,23 @@
         },
         ```
 
+-   images 폴더 위치고민 : public 내부 vs src 내부
+    각자의 특징을 어필해보도록 !
+
+    -   public 내부
+        정적인 파일, html, 이미지 등의 파일이 들어간다고 알고 있어서 images를 여기에 넣는게 맞지 않을까란 생각을 제일 먼저했다.
+
+    -   src 내부
+        컴포넌트 단위로 필요한 이미지라면, 여기 안에 images폴더를 관리하는 것도 좋을 거 같다. 가까우니까! -> src 안에 두는 거로 !
+
+    -   참고  
+        [CRA에서-image위치](https://medium.com/%EB%8F%84%EA%B9%A8%EB%B9%84-%EC%9D%B4%EC%95%BC%EA%B8%B0/react%EC%97%90%EC%84%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EA%B2%BD%EB%A1%9C-%EB%AC%B8%EC%A0%9C-dff9664fe63)
+
+## 배운 것
+
+> image위치가 src 내에 있다면, <img src={상대경로로 바로 접근 불가}> -> import로 받아와서 이용
+> [참고](https://dev-note-97.tistory.com/213#--%--public%--%ED%-F%B-%EB%-D%--%EC%--%--%--%EC%A-%--%EC%-E%A-%---%-E%--%EC%--%--%EB%-C%--%EA%B-%BD%EB%A-%-C%EB%A-%-C%--%EC%-E%A-%EA%B-%B-)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -221,3 +238,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+```
+
+```

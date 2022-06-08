@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { ReactComponent as YoutubeLogo } from "../images/youtube.svg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import SearchIcon from "../images/search.png";
 
 const HeaderLayout = styled.header`
 	background-color: white;
@@ -30,6 +31,10 @@ const HeaderLayout = styled.header`
 		button {
 			padding: 10px;
 			border: none;
+			background-color: darkgray;
+			img {
+				width: 15px;
+			}
 		}
 	}
 `;
@@ -51,7 +56,9 @@ export default function Header({ onSearch }) {
 			</div>
 			<form onSubmit={onSearchHandler}>
 				<input placeholder="검색" ref={inputRef}></input>
-				<button>검색</button>
+				<button>
+					<img src={SearchIcon} alt="search-button" />
+				</button>
 			</form>
 		</HeaderLayout>
 	);
