@@ -12,10 +12,6 @@ const PlayerLayout = styled.main`
 		width: 868px;
 		height: 488px;
 		padding-bottom: 30px;
-		iframe {
-			width: 100%;
-			height: 100%;
-		}
 	}
 	.description {
 		display: flex;
@@ -59,20 +55,23 @@ const getCurrentAndNextVideo = (allVideos, currentVideoId) => {
 };
 
 export default function Player({ videos }) {
+	console.log(videos); //  새로고침시 [] 가 됨
 	const { videoId } = useParams();
-	const { currentVideo, nextVideos } = getCurrentAndNextVideo(
-		videos,
-		videoId
-	);
 	const {
-		snippet: { title, publishedAt, channelTitle, description },
-	} = currentVideo;
+		currentVideo: {
+			snippet: { title, publishedAt, channelTitle, description },
+		},
+		nextVideos,
+	} = getCurrentAndNextVideo(videos, videoId);
 
 	return (
 		<PlayerLayout>
 			<article>
 				<div className="video-player">
 					<iframe
+						type="text/html"
+						width="100%"
+						height="100%"
 						src={`https://www.youtube.com/embed/${videoId}`}
 						frameBorder="0"
 						title="video"

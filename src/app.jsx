@@ -7,14 +7,18 @@ import Player from "./components/player";
 import Videos from "./components/videos";
 
 function App({ youtube }) {
-	const [videos, setVideos] = useState([]);
+	const [videos, setVideos] = useState(null);
 
 	useEffect(() => {
-		youtube.getPopularVideo().then((videos) => setVideos(videos));
+		youtube
+			.getPopularVideo() //
+			.then((videos) => setVideos(videos));
 	}, []);
 
 	const onSearch = (query) => {
-		youtube.onSearch(query).then((videos) => setVideos(videos));
+		youtube
+			.onSearch(query) //
+			.then((videos) => setVideos(videos));
 	};
 	// video를 비동기로 받아오니까, 받아오기 전엔 스켈레톤 로딩을 시키는거구나
 	return (
