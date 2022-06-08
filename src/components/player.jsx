@@ -55,7 +55,6 @@ const getCurrentAndNextVideo = (allVideos, currentVideoId) => {
 };
 
 export default function Player({ videos }) {
-	console.log(videos); //  새로고침시 [] 가 됨
 	const { videoId } = useParams();
 	const {
 		currentVideo: {
