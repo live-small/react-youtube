@@ -6,28 +6,20 @@ import Header from "./components/header";
 import Player from "./components/player";
 import Videos from "./components/videos";
 
-function App() {
-	const [videos, setVideos] = useState(null);
+function App({ youtube }) {
+	const [videos, setVideos] = useState([]);
 
 	useEffect(() => {
-		// mock server연결 -> setVideos(data)
-		const loadVideos = async () => {
-			try {
-				fetch(
-					`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=KR&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
-				)
-					.then((response) => response.json())
-					.then((data) => setVideos(data.items));
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		loadVideos();
+		youtube.getPopularVideo().then((videos) => setVideos(videos));
 	}, []);
+
+	const onSearch = (query) => {
+		youtube.onSearch(query).then((videos) => setVideos(videos));
+	};
 	// video를 비동기로 받아오니까, 받아오기 전엔 스켈레톤 로딩을 시키는거구나
 	return (
 		<BrowserRouter>
-			<Header onHandleVideos={setVideos} />
+			<Header onSearch={onSearch} />
 			<Routes>
 				<Route
 					path="/"

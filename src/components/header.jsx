@@ -34,24 +34,12 @@ const HeaderLayout = styled.header`
 	}
 `;
 
-const setVideosForm = (videos) => {
-	if (typeof videos[0].id !== "object") return videos;
-	return videos.map((item) => {
-		item.id = item.id.videoId;
-		return item;
-	});
-};
-
-export default function Header({ onHandleVideos }) {
+export default function Header({ onSearch }) {
 	const inputRef = useRef();
-	const onSearchHandler = async (event) => {
+	const onSearchHandler = (event) => {
 		event.preventDefault();
-		await fetch(
-			`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${inputRef.current.value}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
-		)
-			.then((response) => response.json())
-			.then((videos) => onHandleVideos(setVideosForm(videos.items)))
-			.then(() => (inputRef.current.value = ""));
+		onSearch(inputRef.current.value);
+		inputRef.current.value = "";
 	};
 
 	return (
