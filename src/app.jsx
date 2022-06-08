@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./app.css";
 import Header from "./components/header";
@@ -15,11 +15,14 @@ function App({ youtube }) {
 			.then((videos) => setVideos(videos));
 	}, []);
 
-	const onSearch = (query) => {
-		youtube
-			.onSearch(query) //
-			.then((videos) => setVideos(videos));
-	};
+	const onSearch = useCallback(
+		(query) => {
+			youtube
+				.onSearch(query) //
+				.then((videos) => setVideos(videos));
+		},
+		[youtube]
+	);
 	// video를 비동기로 받아오니까, 받아오기 전엔 스켈레톤 로딩을 시키는거구나
 	return (
 		<BrowserRouter>

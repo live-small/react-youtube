@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, memo } from "react";
 import { ReactComponent as YoutubeLogo } from "../images/youtube.svg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -39,7 +39,7 @@ const HeaderLayout = styled.header`
 	}
 `;
 
-export default function Header({ onSearch }) {
+const Header = memo(function Header({ onSearch }) {
 	const inputRef = useRef();
 	const onSearchHandler = (event) => {
 		event.preventDefault();
@@ -62,4 +62,6 @@ export default function Header({ onSearch }) {
 			</form>
 		</HeaderLayout>
 	);
-}
+});
+
+export default Header;
