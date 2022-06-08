@@ -40,8 +40,11 @@
     -   `해결` /embed/videoId 로 해야함.
 
 -   API key를 어떻게 보관해야.. 깃허브에 안보일 수 있지? api 키 저장파일을 gitignore에 올리고, 변수로 받아와서 url에 넣으면 되지 않을까?
+
     -   api 키 저장파일은 어떤거로? `.env`
     -   `문제` 근데.. network > request에선 api키를 확인할 수 있다. -> 이것도 안보이게 하려면 ?!
+    -   `문제` gh-pages로 배포하니까 build 파일에 api키 노출됨 -> 음.. 일단 다른거로 배포해보자 -> netlify
+
 -   랜딩페이지에서 보여질 video는, 인기있는 영상들(video api 이용)
 
     -   검색한 후에 보여질 video는, 검색결과로 나온 영상들(search api 이용)
