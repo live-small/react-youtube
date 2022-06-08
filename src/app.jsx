@@ -13,7 +13,7 @@ function App({ youtube }) {
 		youtube
 			.getPopularVideo() //
 			.then((videos) => setVideos(videos));
-	}, []);
+	}, [youtube]);
 
 	const onSearch = useCallback(
 		(query) => {
