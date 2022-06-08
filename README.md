@@ -163,6 +163,9 @@
     -   참고  
         [CRA에서-image위치](https://medium.com/%EB%8F%84%EA%B9%A8%EB%B9%84-%EC%9D%B4%EC%95%BC%EA%B8%B0/react%EC%97%90%EC%84%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EA%B2%BD%EB%A1%9C-%EB%AC%B8%EC%A0%9C-dff9664fe63)
 
+-   `문제` 유튜브에서 검색 -> 나온 영상을 클릭 -> 영상을 볼 수 있는 detail 페이지에서, 새로고침하면 에러발생!!
+    -   왜 ? 새로고침하면, useState로 관리하던 videos 상태값 초기화 됨 -> popular video 가져와서 videos에 넣음(app의 useEffect) -> 검색결과로 나온 영상들과 현재 videos가 다름 -> 검색결과로 나온 영상 중 하나의 video id를 emded하려고 함 -> 영상은 가져와지지만, video의 설명(제목, 채널명, 업로드한 날짜 등)을 가져올 수 없음.
+
 ## 배운 것
 
 > image위치가 src 내에 있다면, <img src={상대경로로 바로 접근 불가}> -> import로 받아와서 이용
