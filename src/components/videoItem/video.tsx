@@ -1,7 +1,23 @@
-import React from "react";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+export type VideoType = {
+	id: string;
+	snippet: {
+		title: string;
+		publishedAt: string;
+		channelTitle: string;
+		description: string;
+		thumbnails: {
+			medium: {
+				url: string;
+				width: string;
+				height: string;
+			};
+		};
+	};
+};
 
 const VideoLayout = styled.article`
 	display: flex;
@@ -33,7 +49,7 @@ const VideoLayout = styled.article`
 	}
 `;
 
-const Video = memo(function Video({ video }) {
+const Video = memo(function Video({ video }: { video: VideoType }) {
 	const {
 		snippet: { thumbnails, title, channelTitle },
 	} = video;

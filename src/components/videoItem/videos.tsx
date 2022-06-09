@@ -1,6 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import Video from "./video";
+import Video, { VideoType } from "./video";
 
 const VideosLayout = styled.main`
 	display: flex;
@@ -9,7 +8,7 @@ const VideosLayout = styled.main`
 	justify-content: space-between;
 `;
 
-export default function Videos({ videos }) {
+export default function Videos({ videos }: { videos: VideoType[] }) {
 	return (
 		<VideosLayout>
 			{videos.map((video) => {

@@ -1,10 +1,9 @@
 import React from "react";
 import { useEffect, useState, useCallback } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./app.css";
-import Header from "./components/header";
-import Player from "./components/player";
-import Videos from "./components/videos";
+import Header from "./components/common/header/header";
+import Player from "./components/videoItem/player";
+import Videos from "./components/videoItem/videos";
 
 function App({ youtube }) {
 	const [videos, setVideos] = useState(null);

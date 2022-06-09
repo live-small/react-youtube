@@ -43,3 +43,5 @@ typescript 모듈을 다운받고, IDE를 재시작했지만 typescript 적용�
 ## reference
 
 [typescript-hand-book](https://joshua1988.github.io/ts/config/tsconfig.html#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%84%A4%EC%A0%95-%ED%8C%8C%EC%9D%BC-tsconfig-json)
+
+[폴더구조-참고](https://github.com/react-boilerplate/react-boilerplate-cra-template)
