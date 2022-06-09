@@ -1,4 +1,5 @@
 {
+	"extends": "./tsconfig.paths.json",
 	"compilerOptions": {
 		"target": "es5", // 컴파일 후, 빌드 폴더에 생성되는 js 버전
 		"lib": ["es2015", "dom", "dom.iterable"], // 컴파일 할 때, 포함할 라이브러리 - es2015: 프로미스 객체, dom: DOM API 사용
@@ -9,5 +10,6 @@
 		"module": "CommonJS", //require로 모듈 가져옴(IE호환 가능) <-> esnext
 		"jsx": "react-jsx"
 	},
-	"include": ["src"]
+	"include": ["src", "craco.config.js"],
+	"exclude": ["node_modules", "**/node_modules/*"]
 }

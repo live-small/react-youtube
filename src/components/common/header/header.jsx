@@ -1,8 +1,8 @@
 import { useRef, memo } from "react";
-import { ReactComponent as YoutubeLogo } from "../../../images/youtube.svg";
+import { ReactComponent as YoutubeLogo } from "@/images/youtube.svg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import SearchIcon from "../../../images/search.png";
+import SearchIcon from "@/images/search.png";
 
 const HeaderLayout = styled.header`
 	background-color: white;

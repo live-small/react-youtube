@@ -1,5 +1,5 @@
+import Video, { VideoType } from "@/components/videoItem/video";
 import styled from "styled-components";
-import Video, { VideoType } from "./video";
 
 const VideosLayout = styled.main`
 	display: flex;
