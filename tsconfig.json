@@ -10,6 +10,6 @@
 		"module": "CommonJS", //require로 모듈 가져옴(IE호환 가능) <-> esnext
 		"jsx": "react-jsx"
 	},
-	"include": ["src", "craco.config.js"],
+	"include": ["src", "craco.config.js", "src/custom.d.ts"],
 	"exclude": ["node_modules", "**/node_modules/*"]
 }
