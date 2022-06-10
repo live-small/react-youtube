@@ -11,12 +11,17 @@ ${reset} // 브라우저마다 다른 초기설정값 reset 시켜줌
 
 a {
 	text-decoration: none;
-	color: #065fd4;
+	color: ${(props) => props.theme.color.blue};
 }
 
 button {
 	border: none; 
 	cursor: pointer; 
+	background-color: white;
+}
+
+input {
+	border: none; 
 }
 
 `;
