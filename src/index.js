@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "@/app.jsx";
-import Youtube from "@/components/service/youtube";
 import { ThemeProvider } from "styled-components";
-import { theme } from "@/styles/theme";
-import { GlobalStyle } from "@/styles/global_style";
+import { theme } from "./styles/theme";
+import App from "./app";
+import { GlobalStyle } from "./styles/global_style";
+import Youtube from "@components/service/youtube";
 
 const youtube = new Youtube();
 

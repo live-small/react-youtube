@@ -1,5 +1,5 @@
 {
-	"extends": "./tsconfig.paths.json",
+	"extends": "./tsconfig.paths.json", // tsconfig.paths.json도 설정할 때 이용한다
 	"compilerOptions": {
 		"target": "es5", // 컴파일 후, 빌드 폴더에 생성되는 js 버전
 		"lib": ["es2015", "dom", "dom.iterable"], // 컴파일 할 때, 포함할 라이브러리 - es2015: 프로미스 객체, dom: DOM API 사용

@@ -1,4 +1,4 @@
-import Video, { VideoType } from "@/components/videoItem/video";
+import Video, { VideoType } from "@components/videoItem/video";
 import styled from "styled-components";
 
 const VideosLayout = styled.main`

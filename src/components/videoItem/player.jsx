@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import Videos from "@/components/videoItem/videos";
+import Videos from "@components/videoItem/videos";
 
 const PlayerLayout = styled.main`
 	display: grid;

@@ -1,18 +1,18 @@
 import React from "react";
 import { useEffect, useState, useCallback } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "@/components/common/header/header";
-import Videos from "@/components/videoItem/videos";
-import Player from "@/components/videoItem/player";
+import Header from "@components/common/header/header";
+import Videos from "@components/videoItem/videos";
+import Player from "@components/videoItem/player";
 
 function App({ youtube }) {
 	const [videos, setVideos] = useState(null);
 
-	useEffect(() => {
-		youtube
-			.getPopularVideo() //
-			.then((videos) => setVideos(videos));
-	}, [youtube]);
+	// useEffect(() => {
+	// 	youtube
+	// 		.getPopularVideo() //
+	// 		.then((videos) => setVideos(videos));
+	// }, [youtube]);
 
 	const onSearch = useCallback(
 		(query) => {
@@ -26,7 +26,7 @@ function App({ youtube }) {
 	return (
 		<BrowserRouter>
 			<Header onSearch={onSearch} />
-			<Routes>
+			{/* <Routes>
 				<Route
 					path="/"
 					element={videos && <Videos videos={videos} />}
@@ -35,7 +35,7 @@ function App({ youtube }) {
 					path="/embed/:videoId"
 					element={videos && <Player videos={videos} />}
 				/>
-			</Routes>
+			</Routes> */}
 		</BrowserRouter>
 	);
 }
