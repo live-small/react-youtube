@@ -1,41 +1,24 @@
-import React from "react";
-import { useEffect, useState, useCallback } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Landing from "./pages/landing";
+import Watch from "./pages/watch";
+import Search from "./pages/search";
 import Header from "@components/common/header";
-import Videos from "@components/videoItem/videos";
-import Player from "@components/videoItem/player";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App({ youtube }) {
-	const [videos, setVideos] = useState(null);
-
-	// useEffect(() => {
-	// 	youtube
-	// 		.getPopularVideo() //
-	// 		.then((videos) => setVideos(videos));
-	// }, [youtube]);
-
-	const onSearch = useCallback(
-		(query) => {
-			youtube
-				.onSearch(query) //
-				.then((videos) => setVideos(videos));
-		},
-		[youtube]
-	);
-	// video를 비동기로 받아오니까, 받아오기 전엔 스켈레톤 로딩을 시키는거구나
 	return (
 		<BrowserRouter>
 			<Header />
-			{/* <Routes>
+			<Routes>
+				<Route path="/" element={<Landing youtube={youtube} />} />
 				<Route
-					path="/"
-					element={videos && <Videos videos={videos} />}
+					path="search/:query"
+					element={<Search youtube={youtube} />}
 				/>
 				<Route
-					path="/embed/:videoId"
-					element={videos && <Player videos={videos} />}
+					path="/watch/:videoId"
+					element={<Watch youtube={youtube} />}
 				/>
-			</Routes> */}
+			</Routes>
 		</BrowserRouter>
 	);
 }

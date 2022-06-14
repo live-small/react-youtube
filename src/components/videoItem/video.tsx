@@ -1,23 +1,7 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
-export type VideoType = {
-	id: string;
-	snippet: {
-		title: string;
-		publishedAt: string;
-		channelTitle: string;
-		description: string;
-		thumbnails: {
-			medium: {
-				url: string;
-				width: string;
-				height: string;
-			};
-		};
-	};
-};
+import { VideoType } from "types/youtube";
 
 const VideoLayout = styled.article`
 	display: flex;
@@ -56,7 +40,7 @@ const Video = memo(function Video({ video }: { video: VideoType }) {
 
 	return (
 		<VideoLayout>
-			<Link to={`/embed/${video.id}`}>
+			<Link to={`/watch/${video.id}`}>
 				<div className="thumbnails">
 					<img
 						alt="thumbnails"
