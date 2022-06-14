@@ -1,6 +1,9 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
+import { VideoTypeOfSearch } from "types/youtube";
 
 class Youtube {
+	readonly youtubeAPI: AxiosInstance;
+
 	constructor() {
 		this.youtubeAPI = axios.create({
 			baseURL: `https://youtube.googleapis.com/youtube/v3/`,
@@ -24,7 +27,7 @@ class Youtube {
 		}
 	}
 
-	async onSearch(query) {
+	async onSearch(query: string) {
 		try {
 			const { data } = await this.youtubeAPI.get(`search`, {
 				params: {
@@ -34,7 +37,7 @@ class Youtube {
 					q: query,
 				},
 			});
-			return data.items.map((video) => ({
+			return data.items.map((video: VideoTypeOfSearch) => ({
 				...video,
 				id: video.id.videoId,
 			}));
