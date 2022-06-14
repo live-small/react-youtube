@@ -81,6 +81,6 @@ const Container = styled.form<{ isWriting: boolean; isFocus: boolean }>`
 	}
 
 	.search-button:hover {
-		opacity: 0.6;
+		background-color: #f0f0f0;
 	}
 `;

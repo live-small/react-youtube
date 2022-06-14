@@ -24,4 +24,8 @@ input {
 	border: none; 
 }
 
+main {
+	background-color: ${(props) => props.theme.color.gray};
+}
+
 `;
