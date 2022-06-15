@@ -3,8 +3,10 @@ import { useRef, useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as DeleteIcon } from "@images/delete_button.svg";
 import { ReactComponent as SearchIcon } from "@images/search.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function Search() {
+	const navigate = useNavigate();
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [isWriting, setIsWriting] = useState(false);
 	const [isFocus, setIsFocus] = useState(false);
@@ -18,8 +20,8 @@ export default function Search() {
 	};
 	const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(inputRef.current!.value); // call API
-		// 클릭, 엔터 둘 다 이벤트처리하고 싶다면? -> form안에 submit button있으면 됨 -> 이벤트 버블링으로 form에서 핸들링!
+		if (!inputRef.current) return;
+		navigate(`/search/${inputRef.current.value}`);
 	};
 
 	return (
