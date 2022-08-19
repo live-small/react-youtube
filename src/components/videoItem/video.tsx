@@ -1,3 +1,4 @@
+import Thumbnails from "@components/videoItem/thumbnails";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -7,7 +8,7 @@ const VideoLayout = styled.article`
 	display: flex;
 	flex-direction: column;
 	width: 320px;
-	padding: 0 8px 40px 8px;
+	margin: 0 8px 40px 8px;
 	a {
 		text-decoration: none;
 	}
@@ -36,19 +37,14 @@ const VideoLayout = styled.article`
 const Video = memo(function Video({ video }: { video: VideoType }) {
 	const {
 		snippet: { thumbnails, title, channelTitle },
+		contentDetails: { duration },
+		statistics: { viewCount },
 	} = video;
 
 	return (
 		<VideoLayout>
 			<Link to={`/watch/${video.id}`}>
-				<div className="thumbnails">
-					<img
-						alt="thumbnails"
-						src={thumbnails.medium.url}
-						width={thumbnails.medium.width}
-						height={thumbnails.medium.height}
-					></img>
-				</div>
+				<Thumbnails thumbnails={thumbnails} duration={duration} />
 				<span className="description">
 					<span className="title">{title}</span>
 					<span className="channel-name">{channelTitle}</span>
