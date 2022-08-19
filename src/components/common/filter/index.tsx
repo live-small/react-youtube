@@ -49,6 +49,5 @@ const Container = styled.nav`
 	justify-content: center;
 	align-items: center;
 	border-bottom: 0.5px solid gray;
-	cursor: pointer;
 	user-select: none;
 `;
