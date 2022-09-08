@@ -18,27 +18,31 @@ const checkTimeFormat = (time: string): string => {
 };
 
 // ref: https://github.com/Instagram-Clone-Coding/React_instagram_clone/blob/develop/src/hooks/useGapText.ts
+type TimeUnitType = 60 | 3600 | 86400 | 604800 | 31536000;
+
 export const getGapTimeCurrent = (compareTime: string) => {
-	const gap = Date.now() - Date.parse(compareTime); // unit: ms
-	if (gap >= 86400000 * 365) {
-		return `${Math.floor(gap / (86400000 * 365))}년`;
-	} else if (gap >= 604800000) {
-		return `${Math.floor(gap / 604800000)}주`;
-	} else if (gap >= 86400000) {
-		return `${Math.floor(gap / 86400000)}일`;
-	} else if (gap >= 3600000) {
-		return `${Math.floor(gap / 3600000)}시간`;
-	} else if (gap >= 60000) {
-		return `${Math.floor(gap / 60000)}분`;
-	} else {
-		return "방금";
+	const TimeUnit: TimeUnitType[] = [31536000, 604800, 86400, 3600, 60];
+	const TimeUnitKorean = {
+		60: "분",
+		3600: "시간",
+		86400: "일",
+		604800: "주",
+		31536000: "년",
+	};
+
+	const gap = (Date.now() - Date.parse(compareTime)) / 1000; // unit: ms
+	for (const unit of TimeUnit) {
+		if (gap >= unit) {
+			return `${Math.floor(gap / unit)}${TimeUnitKorean[unit]}`;
+		}
 	}
+	return "방금";
 };
 
-type UnitType = 1000 | 10000 | 100000000;
+type CountUnitType = 1000 | 10000 | 100000000;
 
 export const numberIntoUnit = (number: number) => {
-	const Unit: UnitType[] = [100000000, 10000, 1000];
+	const Unit: CountUnitType[] = [100000000, 10000, 1000];
 	const UnitKorean = { 1000: "천", 10000: "만", 100000000: "억" };
 
 	for (const unit of Unit) {
