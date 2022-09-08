@@ -1,6 +1,6 @@
 import ChannelProfile from "@components/channel/channel-profile";
 import Thumbnails from "@components/videoItem/thumbnails";
-import { getGapTimeCurrent } from "@components/videoItem/utils";
+import { getGapTimeCurrent, numberIntoUnit } from "@components/videoItem/utils";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -77,7 +77,7 @@ const Video = memo(function Video({ video }: { video: VideoAndChannelType }) {
 						<div className="channel-videoview">
 							<div className="channel-name">{channelTitle}</div>
 							<div className="viewcount-publishdate">
-								<div>{viewCount}</div>
+								<div>{numberIntoUnit(viewCount)}</div>
 								<span className="divide-dot"> · </span>
 								<div>{getGapTimeCurrent(publishedAt)} 전</div>
 							</div>
