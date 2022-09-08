@@ -1,5 +1,6 @@
 import ChannelProfile from "@components/channel/channel-profile";
 import Thumbnails from "@components/videoItem/thumbnails";
+import { getGapTimeCurrent } from "@components/videoItem/utils";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -31,6 +32,7 @@ const VideoLayout = styled.article`
 				-webkit-line-clamp: 2;
 				overflow: hidden;
 				color: black;
+				margin-bottom: 6px;
 			}
 			.channel-videoview {
 				font-size: 12px;
@@ -40,8 +42,16 @@ const VideoLayout = styled.article`
 				flex-direction: column;
 				margin-top: 6px;
 
+				.channel-name {
+					padding-bottom: 6px;
+				}
+
 				.viewcount-publishdate {
 					display: flex;
+
+					.divide-dot {
+						padding: 0 6px 0 6px;
+					}
 				}
 			}
 		}
@@ -66,6 +76,11 @@ const Video = memo(function Video({ video }: { video: VideoAndChannelType }) {
 						<div className="title">{title}</div>
 						<div className="channel-videoview">
 							<div className="channel-name">{channelTitle}</div>
+							<div className="viewcount-publishdate">
+								<div>{viewCount}</div>
+								<span className="divide-dot"> · </span>
+								<div>{getGapTimeCurrent(publishedAt)} 전</div>
+							</div>
 						</div>
 					</div>
 				</span>
