@@ -84,6 +84,11 @@ class vs 커스텀 훅
     -> ts로 변경하니, 호출 후 응답값의 타입이 없다는 에러가 떴다.  
      -> 응답값 등 타입은 어디서 관리하는 게 좋을까?
 
+#### `어떻게 타입을 나눠 정의하는 게 이용할 때 좋을까?`
+
+-   응답 타입 중 items 속성을 많이 사용 -> items 타입만 정의해 data.items으로 리턴하니, 해당 함수 내에서는 any 타입으로 됨.
+    -> 응답 타입의 전체 타입을 만들자
+
 ## reference
 
 [typescript-hand-book](https://joshua1988.github.io/ts/config/tsconfig.html#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%84%A4%EC%A0%95-%ED%8C%8C%EC%9D%BC-tsconfig-json)

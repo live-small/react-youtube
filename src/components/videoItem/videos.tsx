@@ -1,6 +1,6 @@
 import Video from "@components/videoItem/video";
 import styled from "styled-components";
-import { VideoType } from "types/youtube";
+import { VideoAndChannelType } from "types/youtube";
 
 const VideosLayout = styled.main`
 	display: flex;
@@ -9,7 +9,7 @@ const VideosLayout = styled.main`
 	justify-content: space-between;
 `;
 
-export default function Videos({ videos }: { videos: VideoType[] }) {
+export default function Videos({ videos }: { videos: VideoAndChannelType[] }) {
 	return (
 		<VideosLayout>
 			{videos.map((video) => {

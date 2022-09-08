@@ -1,9 +1,23 @@
 export interface Youtube {
-	getPopularVideo: () => Promise<VideoType[]>;
-	onSearch: (query: string) => Promise<VideoType[]>;
+	getVideoData: () => Promise<VideoAndChannelType[]>;
+	onSearch: (query: string) => Promise<VideoAndChannelType[]>;
+	getChannelThumbnails: (channelIdList: string) => Promise<ChannelType[]>;
 }
 
+export type VideoResponseType = {
+	items: VideoType[];
+};
+
+export type SearchResponseType = {
+	items: VideoTypeOfSearch[];
+};
+
 export type ThumbnailsType = {
+	default: {
+		url: string;
+		width: string;
+		height: string;
+	};
 	medium: {
 		url: string;
 		width: string;
@@ -11,10 +25,18 @@ export type ThumbnailsType = {
 	};
 };
 
+export type ChannelType = {
+	id: string;
+	snippet: {
+		thumbnails: ThumbnailsType;
+	};
+};
+
 export type VideoType = {
 	id: string;
 	snippet: {
 		title: string;
+		channelId: string;
 		publishedAt: string;
 		channelTitle: string;
 		description: string;
@@ -28,17 +50,13 @@ export type VideoType = {
 	};
 };
 
+export type VideoAndChannelType = VideoType & {
+	channel: ChannelType;
+};
+
 export type VideoTypeOfSearch = {
-	kind: string;
 	id: {
 		kind: string;
 		videoId: string;
-	};
-	snippet: {
-		title: string;
-		publishedAt: string;
-		channelTitle: string;
-		description: string;
-		thumbnails: ThumbnailsType;
 	};
 };
