@@ -8,7 +8,7 @@ export default function Landing({ youtube }: { youtube: Youtube }) {
 
 	useEffect(() => {
 		youtube
-			.getVideoData() //
+			.getPopularVideo() //
 			.then((list) => setVideoList(list));
 	}, [youtube]);
 
