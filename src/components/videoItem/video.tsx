@@ -7,7 +7,7 @@ import { VideoAndChannelType } from "types/youtube";
 type Layout = {
 	thumbnailAndExplainDirection?: "row";
 	videoWidth: string;
-	margin: string;
+	margin?: string;
 };
 
 const VideoLayout = styled.article<Layout>`
