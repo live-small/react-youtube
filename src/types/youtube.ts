@@ -1,7 +1,7 @@
 export interface Youtube {
 	getVideoUseVideoId: (videoId: string) => Promise<VideoType[]>;
 	onSearch: (query: string) => Promise<VideoType[]>;
-	getChannelThumbnails: (channelIdList: string) => Promise<ChannelType[]>;
+	getChannel: (channelIdList: string) => Promise<ChannelType[]>;
 	getVideoAndChannelData: (videos: VideoType[]) => Promise<VideoType[]>;
 	getPopularVideo: () => Promise<VideoType[]>;
 	getRelatedVideo: (videoId: string) => Promise<VideoType[]>;
@@ -32,6 +32,10 @@ export type ChannelType = {
 	id: string;
 	snippet: {
 		thumbnails: ThumbnailsType;
+		title: string;
+	};
+	statistics: {
+		subscriberCount: string;
 	};
 };
 

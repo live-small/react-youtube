@@ -63,10 +63,10 @@ class Youtube {
 		}
 	}
 
-	private async getChannelThumbnails(channelIdList: string) {
+	private async getChannel(channelIdList: string) {
 		const { data } = await this.youtubeAPI.get(`channels`, {
 			params: {
-				part: `snippet`,
+				part: `snippet,statistics`,
 				id: channelIdList,
 			},
 		}); // 호출한 순서대로 불러오고 싶다면? -> 호출순서 보장하려면?
@@ -79,12 +79,13 @@ class Youtube {
 			const channelIdListString = videos
 				.map((video) => video.snippet.channelId)
 				.join(",");
-			const channelThumbnails: ChannelType[] =
-				await this.getChannelThumbnails(channelIdListString);
+			const channel: ChannelType[] = await this.getChannel(
+				channelIdListString
+			);
 
 			return videos.map((video) => ({
 				...video,
-				channel: channelThumbnails
+				channel: channel
 					.filter((channel) => video.snippet.channelId === channel.id)
 					.pop(),
 			}));
