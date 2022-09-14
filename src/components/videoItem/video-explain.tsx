@@ -37,7 +37,7 @@ const Container = styled.section`
 	}
 `;
 
-export default function LandingVideoExplain({ video }: { video: VideoType }) {
+export default function VideoExplain({ video }: { video: VideoType }) {
 	const {
 		snippet: { title, channelTitle, publishedAt },
 		statistics: { viewCount },

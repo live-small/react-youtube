@@ -2,7 +2,7 @@ import Video from "@components/videoItem/video";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { VideoType, Youtube } from "types/youtube";
-import LandingVideoExplain from "@components/videoItem/landing-video-explain";
+import VideoExplain from "@components/videoItem/video-explain";
 
 const Container = styled.article`
 	display: flex;
@@ -39,9 +39,7 @@ export default function RelatedVideos({
 						<Video
 							key={video.id}
 							video={video}
-							explainOfVideo={
-								<LandingVideoExplain video={video} />
-							}
+							explainOfVideo={<VideoExplain video={video} />}
 							layout={{
 								videoWidth: "100%",
 								margin: "10px 0 10px 0",

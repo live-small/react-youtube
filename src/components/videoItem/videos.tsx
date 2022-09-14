@@ -1,5 +1,5 @@
-import LandingVideoExplain from "@components/videoItem/landing-video-explain";
 import Video from "@components/videoItem/video";
+import VideoExplain from "@components/videoItem/video-explain";
 import styled from "styled-components";
 import { VideoType } from "types/youtube";
 
@@ -18,7 +18,7 @@ export default function Videos({ videos }: { videos: VideoType[] }) {
 					<Video
 						key={video.id}
 						video={video}
-						explainOfVideo={<LandingVideoExplain video={video} />}
+						explainOfVideo={<VideoExplain video={video} />}
 						layout={{
 							videoWidth: "320px",
 							margin: "0 8px 40px 8px",
