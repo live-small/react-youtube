@@ -6,13 +6,21 @@ const Container = styled.img`
 	margin-right: 12px;
 `;
 
-export default function ChannelProfile({ channel }: { channel: ChannelType }) {
+export default function ChannelProfile({
+	channel,
+	width,
+	height,
+}: {
+	channel: ChannelType;
+	width?: string;
+	height?: string;
+}) {
 	return (
 		<Container
 			alt="channel-profile"
 			src={channel.snippet.thumbnails.default.url}
-			width="36px"
-			height="36px"
+			width={width || "36px"}
+			height={height || "36px"}
 		/>
 	);
 }
