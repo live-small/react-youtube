@@ -1,10 +1,10 @@
 import Filter from "@components/common/filter";
 import Videos from "@components/videoItem/videos";
 import { useEffect, useState } from "react";
-import { VideoAndChannelType, Youtube } from "types/youtube";
+import { VideoType, Youtube } from "types/youtube";
 
 export default function Landing({ youtube }: { youtube: Youtube }) {
-	const [videoList, setVideoList] = useState<VideoAndChannelType[]>();
+	const [videoList, setVideoList] = useState<VideoType[]>();
 
 	useEffect(() => {
 		youtube

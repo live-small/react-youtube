@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import FilterItem from "@components/common/filter/filterItem";
 import { useState } from "react";
-import { VideoAndChannelType, Youtube } from "types/youtube";
+import { VideoType, Youtube } from "types/youtube";
 
 const filterTag = [
 	"인기동영상",
@@ -20,7 +20,7 @@ export default function Filter({
 	onSetVideoList,
 	youtube,
 }: {
-	onSetVideoList: (list: VideoAndChannelType[]) => void;
+	onSetVideoList: (list: VideoType[]) => void;
 	youtube: Youtube;
 }) {
 	const [isSelected, setIsSelected] = useState("인기동영상");

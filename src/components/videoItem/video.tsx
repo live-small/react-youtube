@@ -2,7 +2,7 @@ import Thumbnails from "@components/videoItem/thumbnails";
 import { memo, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { VideoAndChannelType } from "types/youtube";
+import { VideoType } from "types/youtube";
 
 type Layout = {
 	thumbnailAndExplainDirection?: "row";
@@ -19,7 +19,6 @@ const VideoLayout = styled.article<Layout>`
 			props.thumbnailAndExplainDirection
 				? props.thumbnailAndExplainDirection
 				: "column"};
-		// * row인데도 안먹음.. 왜지? **
 	}
 `;
 
@@ -28,13 +27,13 @@ const Video = memo(function Video({
 	layout,
 	explainOfVideo,
 }: {
-	video: VideoAndChannelType;
+	video: VideoType;
 	layout: Layout;
 	explainOfVideo: ReactElement;
 }) {
 	return (
 		<VideoLayout {...layout}>
-			<Link to={`/watch/${video.id}`}>
+			<Link to={`/watch/${video.id}`} state={video}>
 				<Thumbnails
 					thumbnails={video.snippet.thumbnails}
 					duration={video.contentDetails.duration}

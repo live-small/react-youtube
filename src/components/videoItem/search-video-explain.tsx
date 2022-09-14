@@ -1,7 +1,7 @@
 import ChannelProfile from "@components/channel/channel-profile";
 import ViewcountAndPublishDate from "@components/videoItem/viewcount-publishdate";
 import styled from "styled-components";
-import { VideoAndChannelType } from "types/youtube";
+import { VideoType } from "types/youtube";
 
 const Container = styled.section`
 	display: flex;
@@ -32,11 +32,7 @@ const Container = styled.section`
 	}
 `;
 
-export default function SearchVideoExplain({
-	video,
-}: {
-	video: VideoAndChannelType;
-}) {
+export default function SearchVideoExplain({ video }: { video: VideoType }) {
 	const {
 		snippet: { title, channelTitle, publishedAt, description },
 		statistics: { viewCount },
@@ -51,7 +47,7 @@ export default function SearchVideoExplain({
 				publishedAt={publishedAt}
 			/>
 			<div className="channel">
-				<ChannelProfile channel={channel} />
+				{channel && <ChannelProfile channel={channel} />}
 				<div className="channel-name">{channelTitle}</div>
 			</div>
 			<div className="description">{description}</div>

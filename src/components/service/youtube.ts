@@ -27,7 +27,7 @@ class Youtube {
 						id: videoId,
 					},
 				});
-			return data.items;
+			return data.items.map((video) => ({ ...video, hasChannel: false }));
 		} catch (error) {
 			throw new Error(`Not working on get video api, ${error}`);
 		}
@@ -53,6 +53,7 @@ class Youtube {
 
 			return videoAndChannel.map((video) => ({
 				...video,
+				hasChannel: true,
 				snippet: data.items
 					.filter((v) => v.id.videoId === video.id)
 					.pop()!.snippet,

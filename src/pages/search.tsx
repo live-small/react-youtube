@@ -3,7 +3,7 @@ import Video from "@components/videoItem/video";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { VideoAndChannelType, Youtube } from "types/youtube";
+import { VideoType, Youtube } from "types/youtube";
 
 const Container = styled.main`
 	padding: 1em;
@@ -14,7 +14,7 @@ const Container = styled.main`
 
 export default function Search({ youtube }: { youtube: Youtube }) {
 	const { query } = useParams();
-	const [videoList, setVideoList] = useState<VideoAndChannelType[]>();
+	const [videoList, setVideoList] = useState<VideoType[]>();
 
 	useEffect(() => {
 		query &&

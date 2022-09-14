@@ -1,4 +1,4 @@
-import { VideoAndChannelType } from "types/youtube";
+import { VideoType } from "types/youtube";
 import ChannelProfile from "@components/channel/channel-profile";
 import ViewcountAndPublishDate from "@components/videoItem/viewcount-publishdate";
 import styled from "styled-components";
@@ -37,11 +37,7 @@ const Container = styled.section`
 	}
 `;
 
-export default function LandingVideoExplain({
-	video,
-}: {
-	video: VideoAndChannelType;
-}) {
+export default function LandingVideoExplain({ video }: { video: VideoType }) {
 	const {
 		snippet: { title, channelTitle, publishedAt },
 		statistics: { viewCount },
@@ -50,7 +46,7 @@ export default function LandingVideoExplain({
 
 	return (
 		<Container>
-			<ChannelProfile channel={channel} />
+			{channel && <ChannelProfile channel={channel} />}
 			<div className="explain">
 				<div className="title">{title}</div>
 				<div className="channel-videoview">

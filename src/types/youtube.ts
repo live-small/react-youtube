@@ -1,11 +1,9 @@
 export interface Youtube {
 	getVideoUseVideoId: (videoId: string) => Promise<VideoType[]>;
-	onSearch: (query: string) => Promise<VideoAndChannelType[]>; // * 리턴타입 정의해야함
+	onSearch: (query: string) => Promise<VideoType[]>;
 	getChannelThumbnails: (channelIdList: string) => Promise<ChannelType[]>;
-	getVideoAndChannelData: (
-		videos: VideoType[]
-	) => Promise<VideoAndChannelType[]>;
-	getPopularVideo: () => Promise<VideoAndChannelType[]>;
+	getVideoAndChannelData: (videos: VideoType[]) => Promise<VideoType[]>;
+	getPopularVideo: () => Promise<VideoType[]>;
 	getRelatedVideo: (videoId: string) => Promise<VideoType[]>;
 }
 
@@ -53,10 +51,7 @@ export type VideoType = {
 	statistics: {
 		viewCount: number;
 	};
-};
-
-export type VideoAndChannelType = VideoType & {
-	channel: ChannelType;
+	channel: ChannelType | null;
 };
 
 export type VideoTypeOfSearch = {
