@@ -44,6 +44,7 @@ export type VideoType = {
 		channelTitle: string;
 		description: string;
 		thumbnails: ThumbnailsType;
+		tags: string[];
 	};
 	contentDetails: {
 		duration: string;
