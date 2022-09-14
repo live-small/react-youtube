@@ -59,3 +59,7 @@ const getNumber = (number: number, unit: number) => {
 	}
 	return Number.parseFloat(String(number / unit)).toFixed(1);
 };
+
+export const getDateFormat = (date: string) => {
+	return date.match(/(\d{4}-\d{2}-\d{2})/g)?.pop();
+};

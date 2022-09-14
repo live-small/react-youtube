@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { getGapTimeCurrent, numberIntoUnit } from "@components/service/utils";
+import {
+	getDateFormat,
+	getGapTimeCurrent,
+	numberIntoUnit,
+} from "@components/service/utils";
 
 const Container = styled.div`
 	display: flex;
@@ -12,15 +16,27 @@ const Container = styled.div`
 export default function ViewcountAndPublishDate({
 	viewCount,
 	publishedAt,
+	detail,
 }: {
 	viewCount: number;
 	publishedAt: string;
+	detail?: boolean;
 }) {
 	return (
 		<Container>
-			<div>{numberIntoUnit(viewCount)}</div>
-			<span className="divide-dot"> · </span>
-			<div>{getGapTimeCurrent(publishedAt)} 전</div>
+			{detail ? (
+				<>
+					<div>{Number(viewCount).toLocaleString()}회</div>
+					<span className="divide-dot"> · </span>
+					<div>{getDateFormat(publishedAt)}</div>
+				</>
+			) : (
+				<>
+					<div>{numberIntoUnit(viewCount)}</div>
+					<span className="divide-dot"> · </span>
+					<div>{getGapTimeCurrent(publishedAt)} 전</div>
+				</>
+			)}
 		</Container>
 	);
 }
