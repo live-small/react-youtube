@@ -4,7 +4,7 @@ import { ChannelType } from "types/youtube";
 import styled from "styled-components";
 import { useState } from "react";
 
-const Container = styled.div`
+const Container = styled.div<{ isSubscribe: boolean }>`
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
@@ -30,13 +30,22 @@ const Container = styled.div`
 			}
 		}
 	}
+
+	.subscribe-button {
+		background-color: ${(props) =>
+			props.isSubscribe ? "#0000000d" : "#c00"};
+		color: ${(props) => (props.isSubscribe ? "#606060" : "#fff")};
+		padding: 8px 24px;
+		font-size: 14px;
+		font-weight: 500;
+	}
 `;
 
 export default function ChannelMetadata({ channel }: { channel: ChannelType }) {
 	const [isSubscribe, setIsSubscribe] = useState<boolean>(false);
 
 	return (
-		<Container>
+		<Container isSubscribe={isSubscribe}>
 			<div className="metadata">
 				<ChannelProfile
 					channel={channel}
