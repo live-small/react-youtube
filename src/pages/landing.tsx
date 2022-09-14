@@ -1,5 +1,5 @@
 import Filter from "@components/common/filter";
-import Videos from "@components/videoItem/videos";
+import Videos from "@components/landing/videos";
 import { useEffect, useState } from "react";
 import { VideoType, Youtube } from "types/youtube";
 

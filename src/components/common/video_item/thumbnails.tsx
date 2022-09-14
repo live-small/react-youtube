@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ThumbnailsType } from "types/youtube";
-import { convertISO8601ToTime } from "@components/videoItem/utils";
+import { convertISO8601ToTime } from "@components/service/utils";
 
 const Container = styled.div`
 	position: relative;

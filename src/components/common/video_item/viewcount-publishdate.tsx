@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { getGapTimeCurrent, numberIntoUnit } from "@components/videoItem/utils";
+import { getGapTimeCurrent, numberIntoUnit } from "@components/service/utils";
 
 const Container = styled.div`
 	display: flex;

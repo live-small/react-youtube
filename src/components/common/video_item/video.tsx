@@ -1,4 +1,4 @@
-import Thumbnails from "@components/videoItem/thumbnails";
+import Thumbnails from "@components/common/video_item/thumbnails";
 import { memo, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";

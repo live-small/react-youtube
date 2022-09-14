@@ -1,8 +1,8 @@
-import Video from "@components/videoItem/video";
+import Video from "@components/common/video_item/video";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { VideoType, Youtube } from "types/youtube";
-import VideoExplain from "@components/videoItem/video-explain";
+import VideoExplain from "@components/common/video_item/video-explain";
 
 const Container = styled.article`
 	display: flex;

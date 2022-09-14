@@ -1,7 +1,7 @@
-import ChannelProfile from "@components/channel/channel-profile";
-import ViewcountAndPublishDate from "@components/videoItem/viewcount-publishdate";
 import styled from "styled-components";
 import { VideoType } from "types/youtube";
+import ChannelProfile from "@components/common/video_item/channel-profile";
+import ViewcountAndPublishDate from "@components/common/video_item/viewcount-publishdate";
 
 const Container = styled.section`
 	display: flex;

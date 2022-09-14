@@ -1,5 +1,5 @@
-import Video from "@components/videoItem/video";
-import VideoExplain from "@components/videoItem/video-explain";
+import Video from "@components/common/video_item/video";
+import VideoExplain from "@components/common/video_item/video-explain";
 import styled from "styled-components";
 import { VideoType } from "types/youtube";
 

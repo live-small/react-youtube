@@ -1,9 +1,9 @@
-import SearchVideoExplain from "@components/videoItem/search-video-explain";
-import Video from "@components/videoItem/video";
+import Video from "@components/common/video_item/video";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { VideoType, Youtube } from "types/youtube";
+import SearchVideoExplain from "@components/search/search-video-explain";
 
 const Container = styled.main`
 	padding: 1em;
