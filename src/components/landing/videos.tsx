@@ -18,7 +18,12 @@ export default function Videos({ videos }: { videos: VideoType[] }) {
 					<Video
 						key={video.id}
 						video={video}
-						explainOfVideo={<VideoExplain video={video} />}
+						explainOfVideo={
+							<VideoExplain
+								video={video}
+								layout={{ margin: `0.75em 0 0 0` }}
+							/>
+						}
 						layout={{
 							videoWidth: "320px",
 							margin: "0 8px 40px 8px",

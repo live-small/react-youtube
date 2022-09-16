@@ -3,10 +3,10 @@ import styled from "styled-components";
 import ChannelProfile from "@components/common/video_item/channel-profile";
 import ViewcountAndPublishDate from "@components/common/video_item/viewcount-publishdate";
 
-const Container = styled.section`
+const Container = styled.section<{ layout: { margin: string } }>`
 	display: flex;
 	color: black;
-	margin-top: 0.75em;
+	margin: ${(props) => props.layout.margin};
 
 	.explain {
 		display: flex;
@@ -37,7 +37,13 @@ const Container = styled.section`
 	}
 `;
 
-export default function VideoExplain({ video }: { video: VideoType }) {
+export default function VideoExplain({
+	video,
+	layout,
+}: {
+	video: VideoType;
+	layout: { margin: string };
+}) {
 	const {
 		snippet: { title, channelTitle, publishedAt },
 		statistics: { viewCount },
@@ -45,7 +51,7 @@ export default function VideoExplain({ video }: { video: VideoType }) {
 	} = video;
 
 	return (
-		<Container>
+		<Container layout={layout}>
 			{channel && <ChannelProfile channel={channel} />}
 			<div className="explain">
 				<div className="title">{title}</div>
