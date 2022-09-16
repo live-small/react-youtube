@@ -15,17 +15,17 @@ export type SearchResponseType = {
 	items: VideoTypeOfSearch[];
 };
 
+type ThumbnailPropertyType = {
+	url: string;
+	width: string;
+	height: string;
+};
+
 export type ThumbnailsType = {
-	default: {
-		url: string;
-		width: string;
-		height: string;
-	};
-	medium: {
-		url: string;
-		width: string;
-		height: string;
-	};
+	default: ThumbnailPropertyType;
+	medium: ThumbnailPropertyType;
+	high: ThumbnailPropertyType;
+	standard: ThumbnailPropertyType;
 };
 
 export type ChannelType = {

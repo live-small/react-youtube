@@ -10,6 +10,11 @@ type Layout = {
 	margin?: string;
 };
 
+export type ImageSizeProps = {
+	width: string;
+	height: string;
+};
+
 const VideoLayout = styled.article<Layout>`
 	width: ${(props) => props.videoWidth};
 	margin: ${(props) => props.margin};
@@ -26,17 +31,29 @@ const Video = memo(function Video({
 	video,
 	layout,
 	explainOfVideo,
+	thumbnailSize,
 }: {
 	video: VideoType;
 	layout: Layout;
 	explainOfVideo: ReactElement;
+	thumbnailSize?: ImageSizeProps;
 }) {
+	const {
+		snippet: { thumbnails },
+	} = video;
+
 	return (
 		<VideoLayout {...layout}>
 			<Link to={`/watch/${video.id}`} state={video}>
 				<Thumbnails
-					thumbnails={video.snippet.thumbnails}
+					thumbnails={thumbnails}
 					duration={video.contentDetails.duration}
+					size={
+						thumbnailSize || {
+							width: thumbnails.medium.width,
+							height: thumbnails.medium.height,
+						}
+					}
 				/>
 				{explainOfVideo}
 			</Link>

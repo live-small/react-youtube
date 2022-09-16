@@ -40,6 +40,7 @@ export default function RelatedVideos({
 							key={video.id}
 							video={video}
 							explainOfVideo={<VideoExplain video={video} />}
+							thumbnailSize={{ width: "168px", height: "94px" }}
 							layout={{
 								videoWidth: "100%",
 								margin: "10px 0 10px 0",
