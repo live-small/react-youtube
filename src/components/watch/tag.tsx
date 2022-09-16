@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 
 	a {
 		color: #065fd4;
