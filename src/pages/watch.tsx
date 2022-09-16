@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { VideoType, Youtube } from "types/youtube";
 import RelatedVideos from "@components/watch/related-videos";
 import Player from "@components/watch/player";
+import { useEffect, useState } from "react";
 
 const Container = styled.main<{ mediaMaxWidth: string }>`
 	display: flex;
@@ -38,12 +39,23 @@ const Container = styled.main<{ mediaMaxWidth: string }>`
 
 export default function Watch({ youtube }: { youtube: Youtube }) {
 	const video = useLocation().state as VideoType;
+	const [videoList, setVideoList] = useState<VideoType>(video);
+
+	useEffect(() => {
+		if (!video.channel) {
+			youtube //
+				.getChannel(video.snippet.channelId)
+				.then((channel) =>
+					setVideoList({ ...video, channel: channel.pop()! })
+				);
+		}
+	}, [video]);
 
 	return (
 		<Container mediaMaxWidth={`${Math.floor(window.innerWidth * 0.7)}px`}>
 			<div className="content">
-				<Player video={video} />
-				<RelatedVideos videoId={video.id} youtube={youtube} />
+				<Player video={videoList} />
+				<RelatedVideos videoId={videoList.id} youtube={youtube} />
 			</div>
 		</Container>
 	);
