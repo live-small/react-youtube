@@ -86,9 +86,7 @@ export default function Player({ video }: { video: VideoType }) {
 				<div className="see-more">
 					<div className="content">
 						{description}
-						<div className="tag">
-							{tags.length > 5 && <Tag tags={tags} />}
-						</div>
+						<div className="tag">{tags && <Tag tags={tags} />}</div>
 					</div>
 					<button
 						className="description-show-toggle-button"

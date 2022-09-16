@@ -30,7 +30,7 @@ export default function VideoDescription({
 	return (
 		<Container>
 			<div className="tags-title">
-				{tags.length > 0 && <Tag tags={tags.slice(0, 5)} />}
+				{tags && <Tag tags={tags.slice(0, 5)} />}
 				<h1 className="title">{title}</h1>
 			</div>
 			<div className="viewCount-publishAt">
