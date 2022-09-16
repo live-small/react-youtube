@@ -9,8 +9,8 @@ const Container = styled.article`
 	line-height: 15px;
 
 	.player {
-		height: 540px;
-		padding-bottom: 30px;
+		height: 33.75rem;
+		padding-bottom: 1.875rem;
 	}
 
 	.channel {
@@ -30,13 +30,13 @@ export default function Player({ video }: { video: VideoType }) {
 	} = video;
 
 	return (
-		<Container>
+		<Container className="player-container">
 			<section className="player">
 				<iframe
+					id="ytplayer"
 					width="100%"
 					height="100%"
-					src={`https://www.youtube.com/embed/${video.id}`}
-					// https://www.youtube-nocookie.com/embed/QL4bz3QXWEo
+					src={`https://www.youtube.com/embed/${video.id}/`}
 					frameBorder="0"
 					title="video"
 					allowFullScreen

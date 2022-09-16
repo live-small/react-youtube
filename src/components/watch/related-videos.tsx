@@ -31,7 +31,7 @@ export default function RelatedVideos({
 	}, [videoId, youtube]);
 
 	return (
-		<Container>
+		<Container className="related-videos">
 			<section>관련 콘텐츠</section>
 			<section className="video-list">
 				{relatedVideo ? (
