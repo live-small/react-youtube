@@ -54,9 +54,6 @@ class Youtube {
 			return videoAndChannel.map((video) => ({
 				...video,
 				hasChannel: true,
-				snippet: data.items
-					.filter((v) => v.id.videoId === video.id)
-					.pop()!.snippet,
 			}));
 		} catch (error) {
 			throw new Error(`Not working onSearch, ${error}`);

@@ -6,29 +6,33 @@ import ViewcountAndPublishDate from "@components/common/video_item/viewcount-pub
 const Container = styled.section`
 	display: flex;
 	flex-direction: column;
-	margin-left: 1em;
+	margin-left: 1rem;
 	color: gray;
-	font-size: 0.875em;
+	font-size: 0.75rem;
 
 	.title {
 		color: black;
-		font-size: 1.28em;
+		font-size: 1.125rem;
 		line-height: 20px;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 2;
 		overflow: hidden;
-		margin-bottom: 0.375em;
+		margin-bottom: 0.375rem;
 	}
 
 	.channel {
 		display: flex;
 		align-items: center;
-		padding: 0.85em 0 0.85em 0;
+		padding: 0.75rem 0 0.75rem 0;
 	}
 
 	.description {
-		font-size: 0.85em;
+		font-size: 0.75rem;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		overflow: hidden;
 	}
 `;
 

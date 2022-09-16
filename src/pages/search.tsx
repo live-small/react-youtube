@@ -8,8 +8,13 @@ import SearchVideoExplain from "@components/search/search-video-explain";
 const Container = styled.main`
 	padding: 1em;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	justify-content: center;
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		max-width: 980px;
+	}
 `;
 
 export default function Search({ youtube }: { youtube: Youtube }) {
@@ -25,22 +30,26 @@ export default function Search({ youtube }: { youtube: Youtube }) {
 
 	return (
 		<Container>
-			{videoList ? (
-				videoList.map((video) => (
-					<Video
-						key={video.id}
-						video={video}
-						explainOfVideo={<SearchVideoExplain video={video} />}
-						layout={{
-							thumbnailAndExplainDirection: "row",
-							videoWidth: "980px",
-							margin: "16px 0 0 0",
-						}}
-					/>
-				))
-			) : (
-				<div>loading...</div>
-			)}
+			<div className="content">
+				{videoList ? (
+					videoList.map((video) => (
+						<Video
+							key={video.id}
+							video={video}
+							explainOfVideo={
+								<SearchVideoExplain video={video} />
+							}
+							layout={{
+								thumbnailAndExplainDirection: "row",
+								videoWidth: "100%",
+								margin: "16px 0 0 0",
+							}}
+						/>
+					))
+				) : (
+					<div>loading...</div>
+				)}
+			</div>
 		</Container>
 	);
 }
